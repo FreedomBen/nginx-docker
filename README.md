@@ -1,19 +1,21 @@
 # nginx-docker
 
-This simply takes the official Nginx docker image and turns on `autoindex`.
+This simply takes the official nginx docker image and turns on `autoindex`.
 
 This way you can do a simple mount to easily serve files from your local
 file system with nginx.  To serve the current working directory on port 8080, use
 this command:
 
 ```bash
-docker run --rm -it --name nginx-file-server -p '8080:80' -v $(pwd):/usr/share/nginx/html:ro docker.io/freedomben/nginx
+docker run --rm -it --name nginx-file-server -p '8080:80' \
+    -v $(pwd):/usr/share/nginx/html:ro docker.io/freedomben/nginx
 ```
 
 Or to serve `/home/bryan/www` daemonized:
 
 ```bash
-docker run --rm -d --name nginx-file-server -p '8080:80' -v /home/bryan/www:/usr/share/nginx/html:ro docker.io/freedomben/nginx
+docker run --rm -d --name nginx-file-server -p '8080:80' \
+    -v /home/bryan/www:/usr/share/nginx/html:ro docker.io/freedomben/nginx
 ```
 
 For convenience I added this function to my `.bashrc` that defaults to the current
