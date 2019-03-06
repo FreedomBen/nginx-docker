@@ -59,10 +59,10 @@ if you want:
 docker pull docker.io/freedomben/nginx`
 ```
 
-If you want to build it locally:
+Or if you want to build it locally:
 
 ```bash
-docker build -t docker.io/freedomben/nginx:latest docker.io/freedomben/nginx:1.13-alpine -f Dockerfile .
+docker build -t docker.io/freedomben/nginx:latest -t docker.io/freedomben/nginx:1.13-alpine -f Dockerfile .
 ```
 
 Then push (if you have push rights, which you probably don't, but this is useful for me
